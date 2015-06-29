@@ -1,14 +1,14 @@
-# BealderSDK for Android
+# SDK for Android
 
 ## Preparation
 
-* 	Get your **APP_ID** and **APP_KEY** from [app.bealder.com](http://app.bealder.com)
+* 	Get your **APP_ID** and **APP_KEY** from [the Bealder plateform](http://app.bealder.com)
 
 ## Configure your project with Eclipse (deprecated)
 
-*	Add the `bealder_sdk_1.0.jar` into your Project's libs folder  
+*	Add the [`bealder-sdk-release-2.0.jar`](https://github.com/bealder/SDK-Android/releases/download/2.0/bealder-sdk-release-2.0.jar) into your Project's libs folder  
 
-*	You can also add the javadoc and a properties file `bealder_sdk_1.0.jar.properties` with the path of the javadoc folder, for example:
+*	You can also add the javadoc and a properties file `bealder-sdk-release-2.0.jar.properties` with the path of the javadoc folder, for example:
 
 ```Ini
 doc=docs/bealder_sdk
@@ -25,7 +25,7 @@ doc=docs/bealder_sdk
 ```
 dependencies {
     compile fileTree(dir: 'libraries', include: ['*.jar'])
-    compile files 'libraries/bealder_sdk_1.0.jar'
+    compile files 'libraries/bealder-sdk-release-2.0.jar'
     compile 'com.android.support:support-v4:21.0.3'
 }
 ```
@@ -38,7 +38,7 @@ dependencies {
 
  File > New module... > Import .Jar or .Aar package
 
-*	The `build.gradle` settings (assuming we store libraries module in the `libraries` folder):
+*	The `build.gradle` settings (assuming we store libraries modules in the `libraries` folder):
 
 ```
 dependencies {
@@ -113,7 +113,7 @@ dependencies {
 
 *	Class Application
 
-> Create class application if it doesn't exist and add declaration to your `manifest.xml`:
+> Create class application if it does not already exists and add declaration to your `manifest.xml`:
 
 ```XML
 	<application
@@ -121,7 +121,7 @@ dependencies {
 
 ```
 
-> In your class application, implements __BootstrapNotifier__ and set BealderSDK
+> In your class application, implement __BootstrapNotifier__ and set BealderSDK
 
 ```Java
 import android.app.Application;
