@@ -92,9 +92,103 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="crm">CRM</h1>
-<h2 id="get-all-devices">Get all devices</h2>
-<pre><code>GET https://api.bealder.com/v2/crm</code></pre>
+                    <h1 id="campaign">Campaign</h1>
+<h2 id="create-new-campaign">Create new campaign</h2>
+<pre><code>POST https://api.bealder.com/v2/lieu/{id}/campaign</code></pre>
+<h3 id="get-parameters">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-parameters">POST Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>Campaign name</td>
+</tr>
+<tr>
+<td>push</td>
+<td>true</td>
+<td>Nofitication content</td>
+</tr>
+<tr>
+<td>title</td>
+<td>true</td>
+<td>Notificaiton title</td>
+</tr>
+<tr>
+<td>template</td>
+<td></td>
+<td>Template (use wysiwyg Bealder)</td>
+</tr>
+<tr>
+<td>url</td>
+<td></td>
+<td>a link</td>
+</tr>
+<tr>
+<td>format</td>
+<td>true</td>
+<td>choise between (template, url, html)</td>
+</tr>
+<tr>
+<td>html</td>
+<td></td>
+<td>source code html/css</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>true</td>
+<td>delay between 2 send campaign</td>
+</tr>
+<tr>
+<td>start</td>
+<td>true</td>
+<td>campaign start</td>
+</tr>
+<tr>
+<td>end</td>
+<td>true</td>
+<td>campaign end</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>true</td>
+<td>start begin of day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>true</td>
+<td>stop end of day</td>
+</tr>
+<tr>
+<td>active</td>
+<td>true</td>
+<td>active campaign with 1, else 0</td>
+</tr>
+</tbody>
+</table>
 <h3 id="header-parameters">HEADER Parameters</h3>
 <table>
 <thead>
@@ -114,22 +208,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="get-one-device">get one device</h2>
-<pre><code>GET https://api.bealder.com/v2/crm/{id}</code></pre>
-<h3 id="get-parameters">GET Parameters</h3>
+<h2 id="get-one-campaign">Get one campaign</h2>
+<pre><code>GET https://api.bealder.com/v2/lieu/{id}/campaign/{uid}</code></pre>
+<h3 id="get-parameters-1">GET Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
+<th>Require</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>String</td>
-<td>id device</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>id of campaign</td>
 </tr>
 </tbody>
 </table>
@@ -152,22 +251,27 @@
 </tr>
 </tbody>
 </table>
-<h2 id="update-one-device">Update one device</h2>
-<pre><code>PUT https://api.bealder.com/v2/crm/{id}</code></pre>
-<h3 id="get-parameters-1">GET Parameters</h3>
+<h2 id="edit-one-campaign">Edit one campaign</h2>
+<pre><code>PUT https://api.bealder.com/v2/lieu/{id}/campaign/{id}</code></pre>
+<h3 id="get-parameters-2">GET Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
+<th>Require</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>String</td>
-<td>id device</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>id of campaign</td>
 </tr>
 </tbody>
 </table>
@@ -176,19 +280,160 @@
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
+<th>Require</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>datas</td>
-<td>array</td>
-<td>list of datas for this device</td>
+<td>name</td>
+<td>true</td>
+<td>Campaign name</td>
+</tr>
+<tr>
+<td>push</td>
+<td>true</td>
+<td>Nofitication content</td>
+</tr>
+<tr>
+<td>title</td>
+<td>true</td>
+<td>Notificaiton title</td>
+</tr>
+<tr>
+<td>template</td>
+<td></td>
+<td>Template (use wysiwyg Bealder)</td>
+</tr>
+<tr>
+<td>url</td>
+<td></td>
+<td>a link</td>
+</tr>
+<tr>
+<td>format</td>
+<td>true</td>
+<td>choise between (template, url, html)</td>
+</tr>
+<tr>
+<td>html</td>
+<td></td>
+<td>source code html/css</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>true</td>
+<td>delay between 2 send campaign</td>
+</tr>
+<tr>
+<td>start</td>
+<td>true</td>
+<td>campaign start</td>
+</tr>
+<tr>
+<td>end</td>
+<td>true</td>
+<td>campaign end</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>true</td>
+<td>start begin of day</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>true</td>
+<td>stop end of day</td>
+</tr>
+<tr>
+<td>active</td>
+<td>true</td>
+<td>active campaign with 1, else 0</td>
 </tr>
 </tbody>
 </table>
 <h3 id="header-parameters-2">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list-campaign">List campaign</h2>
+<pre><code>GET https://api.bealder.com/v2/lieu/{id}/campaign</code></pre>
+<h3 id="get-parameters-3">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-3">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delete-campaign">Delete campaign</h2>
+<pre><code>DELETE https://api.bealder.com/v2/lieu/{id}/campaign/{uid}</code></pre>
+<h3 id="get-parameters-4">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>id of campaign</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-4">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>

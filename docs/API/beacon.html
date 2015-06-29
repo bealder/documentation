@@ -92,9 +92,73 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="crm">CRM</h1>
-<h2 id="get-all-devices">Get all devices</h2>
-<pre><code>GET https://api.bealder.com/v2/crm</code></pre>
+                    <h1 id="beacon">Beacon</h1>
+<h2 id="create-new-beacon">Create new beacon</h2>
+<pre><code>POST https://api.bealder.com/v2/region/{id}/beacon</code></pre>
+<h3 id="get-parameters">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-parameters">POST Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>Beacon name</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>true</td>
+<td>uuid of beacon</td>
+</tr>
+<tr>
+<td>major</td>
+<td>true</td>
+<td>major of beacon</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>true</td>
+<td>minor of beacon</td>
+</tr>
+<tr>
+<td>color</td>
+<td></td>
+<td>view color on map</td>
+</tr>
+<tr>
+<td>active</td>
+<td>true</td>
+<td>if active, set 1, else 0</td>
+</tr>
+<tr>
+<td>proximity</td>
+<td>true</td>
+<td>define default proximity to trigger</td>
+</tr>
+</tbody>
+</table>
 <h3 id="header-parameters">HEADER Parameters</h3>
 <table>
 <thead>
@@ -114,22 +178,74 @@
 </tr>
 </tbody>
 </table>
-<h2 id="get-one-device">get one device</h2>
-<pre><code>GET https://api.bealder.com/v2/crm/{id}</code></pre>
-<h3 id="get-parameters">GET Parameters</h3>
+<h2 id="edit-beacon">Edit beacon</h2>
+<pre><code>PUT https://api.bealder.com/v2/region/{id}/beacon/{uid}</code></pre>
+<h3 id="get-parameters-1">GET Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
+<th>Require</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>String</td>
-<td>id device</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>id of beacon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-parameters">PUT Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>Beacon name</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>true</td>
+<td>uuid of beacon</td>
+</tr>
+<tr>
+<td>major</td>
+<td>true</td>
+<td>major of beacon</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>true</td>
+<td>minor of beacon</td>
+</tr>
+<tr>
+<td>color</td>
+<td></td>
+<td>view color on map</td>
+</tr>
+<tr>
+<td>active</td>
+<td>true</td>
+<td>if active, set 1, else 0</td>
+</tr>
+<tr>
+<td>proximity</td>
+<td>true</td>
+<td>define default proximity to trigger</td>
 </tr>
 </tbody>
 </table>
@@ -152,43 +268,69 @@
 </tr>
 </tbody>
 </table>
-<h2 id="update-one-device">Update one device</h2>
-<pre><code>PUT https://api.bealder.com/v2/crm/{id}</code></pre>
-<h3 id="get-parameters-1">GET Parameters</h3>
+<h2 id="list-beacon">List Beacon</h2>
+<pre><code>GET https://api.bealder.com/v2/region/{id}/beacon</code></pre>
+<h3 id="get-parameters-2">GET Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
+<th>Require</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>String</td>
-<td>id device</td>
+<td>true</td>
+<td>id of venue</td>
 </tr>
 </tbody>
 </table>
-<h3 id="put-parameters">PUT Parameters</h3>
+<h3 id="header-parameters-2">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>datas</td>
-<td>array</td>
-<td>list of datas for this device</td>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
 </tr>
 </tbody>
 </table>
-<h3 id="header-parameters-2">HEADER Parameters</h3>
+<h2 id="delete-beacon">Delete beacon</h2>
+<pre><code>DELETE https://api.bealder.com/v2/region/{id}/beacon/{uid}</code></pre>
+<h3 id="get-parameters-3">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>id of venue</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>id of beacon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-3">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
