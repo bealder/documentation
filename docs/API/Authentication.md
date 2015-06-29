@@ -4,7 +4,7 @@ current_menu: auth
 
 # Authentication
 
-Before used API, you need to authenticate. With your bealder's plateform account (email and password), you will get Token.
+Before you can effectively use API, you need to authenticate. With your Bealder Plateform account (email and password), you will get Token.
 
 	POST https://api.bealder.com/v2/auth
 

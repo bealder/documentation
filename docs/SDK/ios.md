@@ -1,8 +1,8 @@
-# BealderSDK for iOS
+# SDK for iOS
 
 ## Preparation
 
-* 	Get your **appId** and **apiKey** from the [Bealder plateform)](http://app.bealder.com)
+* 	Get your **appId** and **apiKey** from [the Bealder plateform](http://app.bealder.com)
 
 ## Configure your project
 
@@ -17,7 +17,7 @@
 
 *	Add `-ObjC` to your other linker flags (`$YOUR_PROJECT -> $YOUR_TARGET -> Build Settings -> Other Linker Flags`) if it's not already present.
 
-*	In your info.plist file (`$YOUR_PROJECT -> $YOUR_TARGET -> Info -> Custom iOS Target Properties`), add the location update authorization description key `NSLocationAlwaysUsageDescription`. The value of this key must be the message the user will receive when the app will ask him for location update authorization (eg. *"We'll use location to send you interresting promotion based on your location"*)
+*	In your info.plist file (`$YOUR_PROJECT -> $YOUR_TARGET -> Info -> Custom iOS Target Properties`), add the location update authorization description key `NSLocationAlwaysUsageDescription`. This key value must be the message the user will receive when the app will ask him for location update authorization (eg. *"We'll use location to send you interresting promotion based on your location"*)
 
 *	In your app delegate header file, import the framework's header: 
 
@@ -55,7 +55,7 @@
 
 	**Note:** Don't call `-registerForRemoteNotificationTypes:` in your own code. It's called for you when you start the session. If you do, the SDK will generate an exception.
 
-*	Stop the session when the app terminates:
+*	Stop the session when the app is closed:
 
 	```objective-c
 	- (void)applicationWillTerminate:(UIApplication *)application
