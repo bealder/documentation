@@ -92,17 +92,17 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="bealdersdk-for-android">BealderSDK for Android</h1>
+                    <h1 id="sdk-for-android">SDK for Android</h1>
 <h2 id="preparation">Preparation</h2>
 <ul>
-<li>Get your <strong>APP_ID</strong> and <strong>APP_KEY</strong> from <a href="http://app.bealder.com">app.bealder.com</a></li>
+<li>Get your <strong>APP_ID</strong> and <strong>APP_KEY</strong> from <a href="http://app.bealder.com">the Bealder plateform</a></li>
 </ul>
 <h2 id="configure-your-project-with-eclipse-deprecated">Configure your project with Eclipse (deprecated)</h2>
 <ul>
 <li>
-<p>Add the <code>bealder_sdk_1.0.jar</code> into your Project's libs folder  </p>
+<p>Add the <a href="https://github.com/bealder/SDK-Android/releases/download/2.0/bealder-sdk-release-2.0.jar"><code>bealder-sdk-release-2.0.jar</code></a> into your Project's libs folder  </p>
 </li>
-<li>You can also add the javadoc and a properties file <code>bealder_sdk_1.0.jar.properties</code> with the path of the javadoc folder, for example:</li>
+<li>You can also add the javadoc and a properties file <code>bealder-sdk-release-2.0.jar.properties</code> with the path of the javadoc folder, for example:</li>
 </ul>
 <pre><code class="language-Ini">doc=docs/bealder_sdk</code></pre>
 <h2 id="configure-your-project-with-android-studio">Configure your project with Android Studio</h2>
@@ -115,7 +115,7 @@
 </ul>
 <pre><code>dependencies {
     compile fileTree(dir: 'libraries', include: ['*.jar'])
-    compile files 'libraries/bealder_sdk_1.0.jar'
+    compile files 'libraries/bealder-sdk-release-2.0.jar'
     compile 'com.android.support:support-v4:21.0.3'
 }</code></pre>
 <h3 id="sdk-aar-file">SDK Aar file</h3>
@@ -125,7 +125,7 @@
 <p>Aar file is used as a new module and doesn't contains external dependencies (only parse libraries):</p>
 <p>File &gt; New module... &gt; Import .Jar or .Aar package</p>
 </li>
-<li>The <code>build.gradle</code> settings (assuming we store libraries module in the <code>libraries</code> folder):</li>
+<li>The <code>build.gradle</code> settings (assuming we store libraries modules in the <code>libraries</code> folder):</li>
 </ul>
 <pre><code>dependencies {
     compile fileTree(dir: 'libraries', include: ['*.jar'])
@@ -187,13 +187,13 @@
 <li>Class Application</li>
 </ul>
 <blockquote>
-<p>Create class application if it doesn't exist and add declaration to your <code>manifest.xml</code>:</p>
+<p>Create class application if it does not already exists and add declaration to your <code>manifest.xml</code>:</p>
 </blockquote>
 <pre><code class="language-XML">    &lt;application
         android:name=".ApplicationClass"
 </code></pre>
 <blockquote>
-<p>In your class application, implements <strong>BootstrapNotifier</strong> and set BealderSDK</p>
+<p>In your class application, implement <strong>BootstrapNotifier</strong> and set BealderSDK</p>
 </blockquote>
 <pre><code class="language-Java">import android.app.Application;
 import com.bealder.sdk.manager.BealderParameters;

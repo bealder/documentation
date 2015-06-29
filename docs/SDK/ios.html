@@ -92,10 +92,10 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="bealdersdk-for-ios">BealderSDK for iOS</h1>
+                    <h1 id="sdk-for-ios">SDK for iOS</h1>
 <h2 id="preparation">Preparation</h2>
 <ul>
-<li>Get your <strong>appId</strong> and <strong>apiKey</strong> from the <a href="http://app.bealder.com">Bealder plateform)</a></li>
+<li>Get your <strong>appId</strong> and <strong>apiKey</strong> from <a href="http://app.bealder.com">the Bealder plateform</a></li>
 </ul>
 <h2 id="configure-your-project">Configure your project</h2>
 <ul>
@@ -116,7 +116,7 @@
 <p>Add <code>-ObjC</code> to your other linker flags (<code>$YOUR_PROJECT -&gt; $YOUR_TARGET -&gt; Build Settings -&gt; Other Linker Flags</code>) if it's not already present.</p>
 </li>
 <li>
-<p>In your info.plist file (<code>$YOUR_PROJECT -&gt; $YOUR_TARGET -&gt; Info -&gt; Custom iOS Target Properties</code>), add the location update authorization description key <code>NSLocationAlwaysUsageDescription</code>. The value of this key must be the message the user will receive when the app will ask him for location update authorization (eg. <em>&quot;We'll use location to send you interresting promotion based on your location&quot;</em>)</p>
+<p>In your info.plist file (<code>$YOUR_PROJECT -&gt; $YOUR_TARGET -&gt; Info -&gt; Custom iOS Target Properties</code>), add the location update authorization description key <code>NSLocationAlwaysUsageDescription</code>. This key value must be the message the user will receive when the app will ask him for location update authorization (eg. <em>&quot;We'll use location to send you interresting promotion based on your location&quot;</em>)</p>
 </li>
 <li>
 <p>In your app delegate header file, import the framework's header: </p>
@@ -145,7 +145,7 @@
 <p><strong>Note:</strong> Don't call <code>-registerForRemoteNotificationTypes:</code> in your own code. It's called for you when you start the session. If you do, the SDK will generate an exception.</p>
 </li>
 <li>
-<p>Stop the session when the app terminates:</p>
+<p>Stop the session when the app is closed:</p>
 <pre><code class="language-objective-c">- (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to end. Save data if appropriate. See also applicationDidEnterBackground:.
