@@ -1,0 +1,64 @@
+template:
+    # Name of the directory containing the website template (default is "website")
+    directory: website
+    # Or if you are using a remote template, you can set the Git URL
+    #url: https://github.com/CouscousPHP/Template-Light.git
+
+# List of directories to exclude from the processing (default contains "vendor" and "website")
+# Paths are relative to the repository root
+exclude:
+    - vendor
+    - website
+    - some/dir
+
+scripts:
+    # Scripts to execute before generating the website
+    #before:
+    #    - cp bin/couscous docs/
+    # Scripts to execute after generating the website
+    #after:
+    #    - rm website/couscous.phar
+
+# Any variable you put in this file is also available in the Twig layouts:
+title: Bealder Documentation
+subTitle: How can we help you today ?
+
+# Base URL of the published website (no "/" at the end!)
+# You are advised to set and use this variable to write your links in the HTML layouts
+baseUrl: http://bealder.github.io/documentation
+
+menu:
+    sections:
+        sdk:
+            name: SDK Docs
+            items:
+                ios:
+                    text: iOS
+                    relativeUrl: docs/SDK/ios.html
+                android:
+                    text: Android
+                    relativeUrl: docs/SDK/android.html
+        API:
+            name: API Docs
+            items:
+                auth:
+                    text: Authentification
+                    relativeUrl: docs/API/authentication.html
+                profile:
+                    text: Profile
+                    relativeUrl: docs/API/profile.html
+                crm:
+                    text: CRM
+                    relativeUrl: docs/API/crm.html
+                connector:
+                    text: Connector
+                    relativeUrl: docs/API/connector.html
+                venue:
+                    text: Venue
+                    relativeUrl: docs/API/venue.html
+                beacon:
+                    text: Beacon
+                    relativeUrl: docs/API/beacon.html
+                campaign:
+                    text: Campaign
+                    relativeUrl: docs/API/campaign.html
