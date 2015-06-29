@@ -92,7 +92,93 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="welcome-to-bealders-docs-">Welcome to Bealder's docs !</h1>
+                    <h1 id="connector">Connector</h1>
+<h2 id="get-connector">get connector</h2>
+<pre><code>GET https://api.bealder.com/v2/connector</code></pre>
+<h3 id="header-parameters">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update-connector">Update connector</h2>
+<pre><code>PUT https://api.bealder.com/v2/connector</code></pre>
+<h3 id="put-parameters">PUT Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>true</td>
+<td>name of connector</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>true</td>
+<td>url of webservice</td>
+</tr>
+<tr>
+<td>method</td>
+<td>String</td>
+<td>true</td>
+<td>method to send (POST, GET)</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>String</td>
+<td>true</td>
+<td>Parameters to authenticate</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>String</td>
+<td>true</td>
+<td>Send parameters method  (header, get)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-1">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
+<p>To get your token, go to <a href="authentication.html">authentication</a>.</p>
                 </section>
 
             </div>

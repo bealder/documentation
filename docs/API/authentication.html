@@ -92,7 +92,49 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="welcome-to-bealders-docs-">Welcome to Bealder's docs !</h1>
+                    <h1 id="authentication">Authentication</h1>
+<p>Before used API, you need to authenticate. With your bealder's plateform account (email and password), you will get Token.</p>
+<pre><code>POST https://api.bealder.com/v2/auth</code></pre>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Your Email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Your password</td>
+</tr>
+</tbody>
+</table>
+<h2 id="success-response">Success Response</h2>
+<pre><code class="language-json">{
+    "status": "success",
+    "session": {
+        "token": "e3af52364f769c73f826c2fccdae57c9",
+        "email": "YOUR_MAIL",
+        "valid": "2015-06-24T15:03:31+0200"
+    },
+    "code": 200,
+}</code></pre>
+<h2 id="error-response">Error Response</h2>
+<pre><code class="language-json">{
+    "status": "error",
+    "error_message": "no user found",
+    "code": 404
+}</code></pre>
+<h2 id="use-token">Use TOKEN</h2>
+<p><strong>Use this token for all call to API</strong></p>
                 </section>
 
             </div>

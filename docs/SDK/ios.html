@@ -15,7 +15,7 @@
 
         <header class="navbar navbar-default navbar-fixed-top">
             <img src="/img/logo.png" width="55px" style="float:left;margin:5px 5px 5px 15px;" /> 
-            <a class="navbar-brand" href="http://bealder.github.io/documentation/" style="margin-top:10px; font-size:30px;">
+            <a class="navbar-brand" href="http://bealder.github.io/documentation/">
                 Bealder Documentation
                 <small class="hidden-xs hidden-sm">
                     How can we help you today ?
@@ -36,12 +36,12 @@
 
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
-                                        <a href="http://bealder.github.io/documentation/docs/sdk-ios.html">
+                                        <a href="http://bealder.github.io/documentation/docs/SDK/ios.html">
                                             iOS
                                         </a>
                                     </li>
                                                                     <li class="">
-                                        <a href="http://bealder.github.io/documentation/docs/sdk-android.html">
+                                        <a href="http://bealder.github.io/documentation/docs/SDK/android.html">
                                             Android
                                         </a>
                                     </li>
@@ -52,37 +52,50 @@
 
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
-                                        <a href="http://bealder.github.io/documentation/docs/api-bealder.html">
+                                        <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
                                             Authentification
                                         </a>
                                     </li>
-                                                            </ul>
-                                                    <p class="text-muted">
-                                Plateform Docs
-                            </p>
-
-                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/profile.html">
+                                            Profile
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/crm.html">
+                                            CRM
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/connector.html">
+                                            Connector
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/venue.html">
+                                            Venue
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/beacon.html">
+                                            Beacon
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="http://bealder.github.io/documentation/docs/API/campaign.html">
+                                            Campaign
+                                        </a>
+                                    </li>
                                                             </ul>
                         
                     </nav>
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="bealdersdk">BealderSDK</h1>
+                    <h1 id="bealdersdk-for-ios">BealderSDK for iOS</h1>
 <h2 id="preparation">Preparation</h2>
 <ul>
-<li>
-<p>Create your <strong>unique UUID</strong> using <code>uuidgen</code> on a terminal (on Mac or Linux):</p>
-<pre><code>$ uuidgen
-9757F614-EC0D-4E23-98EB-BEF29BBF54D1  // Don't use this one, run your own command on your computer</code></pre>
-</li>
-<li>
-<p>Get your <strong>appId</strong> and <strong>apiKey</strong> from the <a href="http://bealder.com">Bealder website (insert correct URL here)</a></p>
-</li>
-<li>
-<p>Create your push notifications certificates using <a href="https://www.parse.com/tutorials/ios-push-notifications">this tutorial (Create your own tutorial and change the address here)</a>. You will need one for the developpement phase and another for the production app.</p>
-</li>
-<li>Upload the resulting <code>.p12</code> files to the Bealder server using the <a href="http://bealder.com">push certificate form (insert correct URL here)</a>.</li>
+<li>Get your <strong>appId</strong> and <strong>apiKey</strong> from the <a href="http://app.bealder.com">Bealder plateform)</a></li>
 </ul>
 <h2 id="configure-your-project">Configure your project</h2>
 <ul>

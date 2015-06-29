@@ -92,550 +92,10 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="api-bealder">API Bealder</h1>
-<ul>
-<li><a href="#authentication">Authentication</a></li>
-<li><a href="#profile">Profile</a>
-<ul>
-<li><a href="#get-profile">Get profile</a></li>
-<li><a href="#edit-profile">Edit profile</a></li>
-<li><a href="#get-applications">Get applications</a></li>
-</ul></li>
-<li><a href="#crm">CRM</a>
-<ul>
-<li><a href="#list-all-devices">List all devices</a></li>
-<li><a href="#get-one-device">Get one device</a></li>
-<li><a href="#update-one-device">Update one device</a></li>
-</ul></li>
-<li><a href="#crm">Connector</a>
-<ul>
-<li><a href="#get-connector">Get connector information</a></li>
-<li><a href="#edit-connector">Edit connector</a></li>
-</ul></li>
-<li><a href="#venue">Venue</a>
-<ul>
-<li><a href="#list-all-venues">List all venues</a></li>
-<li><a href="#create-new-venue">Create new venue</a></li>
-<li><a href="#get-venue">Get venue</a></li>
-<li><a href="#edit-venue">Edit venue</a></li>
-<li><a href="#delete-venue">Delete venue</a></li>
-</ul></li>
-<li><a href="#beacon">Beacon</a>
-<ul>
-<li><a href="#list-all-beacons">List all beacons</a></li>
-<li><a href="#create-new-beacon">Create new beacon</a></li>
-<li><a href="#get-beacon">Get beacon</a></li>
-<li><a href="#edit-beacon">Edit beacon</a></li>
-<li><a href="#delete-beacon">Delete beacon</a></li>
-</ul></li>
-<li><a href="#campaign">Campaign</a>
-<ul>
-<li><a href="#list-all-campaigns">List all campaigns</a></li>
-<li><a href="#create-new-campaign">Create new campaign</a></li>
-<li><a href="#get-campaign">Get campaign</a></li>
-<li><a href="#edit-campaign">Edit campaign</a></li>
-<li><a href="#delete-campaign">Delete campaign</a></li>
-</ul></li>
-</ul>
-<h2 id="venue">Venue</h2>
-<h3 id="create-new-venue">Create new venue</h3>
-<pre><code>POST https://api.bealder.com/v2/region</code></pre>
-<h4 id="post-parameters">POST Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>true</td>
-<td>Name of venue</td>
-</tr>
-<tr>
-<td>address</td>
-<td>String</td>
-<td>true</td>
-<td>Address</td>
-</tr>
-<tr>
-<td>active</td>
-<td>boolean</td>
-<td>true</td>
-<td>1 if venue is active or 0</td>
-</tr>
-<tr>
-<td>with</td>
-<td>integer</td>
-<td></td>
-<td>with (meter)</td>
-</tr>
-<tr>
-<td>height</td>
-<td>integer</td>
-<td></td>
-<td>height (meter)</td>
-</tr>
-<tr>
-<td>image</td>
-<td>String</td>
-<td></td>
-<td>map of venues</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="edit-venue">Edit venue</h3>
-<pre><code>PUT https://api.bealder.com/v2/region/{id}</code></pre>
-<h4 id="get-parameters">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-</tbody>
-</table>
-<h4 id="put-parameters">PUT Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>String</td>
-<td>true</td>
-<td>Name of venue</td>
-</tr>
-<tr>
-<td>address</td>
-<td>String</td>
-<td>true</td>
-<td>Address</td>
-</tr>
-<tr>
-<td>active</td>
-<td>boolean</td>
-<td>true</td>
-<td>1 if venue is active or 0</td>
-</tr>
-<tr>
-<td>with</td>
-<td>integer</td>
-<td></td>
-<td>with (meter)</td>
-</tr>
-<tr>
-<td>height</td>
-<td>integer</td>
-<td></td>
-<td>height (meter)</td>
-</tr>
-<tr>
-<td>image</td>
-<td>String</td>
-<td></td>
-<td>map of venues</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-1">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get-all-venues">Get all venues</h3>
-<pre><code>GET https://api.bealder.com/v2/region</code></pre>
-<h4 id="header-parameters-2">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="get-one-venue">Get one venue</h3>
-<pre><code>GET https://api.bealder.com/v2/region/{id}</code></pre>
-<h4 id="get-parameters-1">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-3">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="delete-venue">Delete venue</h3>
-<pre><code>DELETE https://api.bealder.com/v2/region/{id}</code></pre>
-<h4 id="header-parameters-4">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h2 id="beacon">Beacon</h2>
-<h3 id="create-new-beacon">Create new beacon</h3>
-<pre><code>POST https://api.bealder.com/v2/region/{id}/beacon</code></pre>
-<h4 id="get-parameters-2">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-</tbody>
-</table>
-<h4 id="post-parameters-1">POST Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>true</td>
-<td>Beacon name</td>
-</tr>
-<tr>
-<td>uuid</td>
-<td>true</td>
-<td>uuid of beacon</td>
-</tr>
-<tr>
-<td>major</td>
-<td>true</td>
-<td>major of beacon</td>
-</tr>
-<tr>
-<td>minor</td>
-<td>true</td>
-<td>minor of beacon</td>
-</tr>
-<tr>
-<td>color</td>
-<td></td>
-<td>view color on map</td>
-</tr>
-<tr>
-<td>active</td>
-<td>true</td>
-<td>if active, set 1, else 0</td>
-</tr>
-<tr>
-<td>proximity</td>
-<td>true</td>
-<td>define default proximity to trigger</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-5">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="edit-beacon">Edit beacon</h3>
-<pre><code>PUT https://api.bealder.com/v2/region/{id}/beacon/{uid}</code></pre>
-<h4 id="get-parameters-3">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-<tr>
-<td>uid</td>
-<td>true</td>
-<td>id of beacon</td>
-</tr>
-</tbody>
-</table>
-<h4 id="put-parameters-1">PUT Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>true</td>
-<td>Beacon name</td>
-</tr>
-<tr>
-<td>uuid</td>
-<td>true</td>
-<td>uuid of beacon</td>
-</tr>
-<tr>
-<td>major</td>
-<td>true</td>
-<td>major of beacon</td>
-</tr>
-<tr>
-<td>minor</td>
-<td>true</td>
-<td>minor of beacon</td>
-</tr>
-<tr>
-<td>color</td>
-<td></td>
-<td>view color on map</td>
-</tr>
-<tr>
-<td>active</td>
-<td>true</td>
-<td>if active, set 1, else 0</td>
-</tr>
-<tr>
-<td>proximity</td>
-<td>true</td>
-<td>define default proximity to trigger</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-6">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="list-beacon">List Beacon</h3>
-<pre><code>GET https://api.bealder.com/v2/region/{id}/beacon</code></pre>
-<h4 id="get-parameters-4">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-7">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h3 id="delete-beacon">Delete beacon</h3>
-<pre><code>DELETE https://api.bealder.com/v2/region/{id}/beacon/{uid}</code></pre>
-<h4 id="get-parameters-5">GET Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Require</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>true</td>
-<td>id of venue</td>
-</tr>
-<tr>
-<td>uid</td>
-<td>true</td>
-<td>id of beacon</td>
-</tr>
-</tbody>
-</table>
-<h4 id="header-parameters-8">HEADER Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x-bealder-key</td>
-<td>Your email</td>
-</tr>
-<tr>
-<td>x-bealder-token</td>
-<td>Your token</td>
-</tr>
-</tbody>
-</table>
-<h2 id="campaign">Campaign</h2>
-<h3 id="create-new-campaign">Create new campaign</h3>
+                    <h1 id="campaign">Campaign</h1>
+<h2 id="create-new-campaign">Create new campaign</h2>
 <pre><code>POST https://api.bealder.com/v2/lieu/{id}/campaign</code></pre>
-<h4 id="get-parameters-6">GET Parameters</h4>
+<h3 id="get-parameters">GET Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -652,7 +112,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="post-parameters-2">POST Parameters</h4>
+<h3 id="post-parameters">POST Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -729,7 +189,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="header-parameters-9">HEADER Parameters</h4>
+<h3 id="header-parameters">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -748,9 +208,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="get-one-campaign">Get one campaign</h3>
+<h2 id="get-one-campaign">Get one campaign</h2>
 <pre><code>GET https://api.bealder.com/v2/lieu/{id}/campaign/{uid}</code></pre>
-<h4 id="get-parameters-7">GET Parameters</h4>
+<h3 id="get-parameters-1">GET Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -772,7 +232,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="header-parameters-10">HEADER Parameters</h4>
+<h3 id="header-parameters-1">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -791,9 +251,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="edit-one-campaign">Edit one campaign</h3>
+<h2 id="edit-one-campaign">Edit one campaign</h2>
 <pre><code>PUT https://api.bealder.com/v2/lieu/{id}/campaign/{id}</code></pre>
-<h4 id="get-parameters-8">GET Parameters</h4>
+<h3 id="get-parameters-2">GET Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -815,7 +275,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="put-parameters-2">PUT Parameters</h4>
+<h3 id="put-parameters">PUT Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -892,7 +352,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="header-parameters-11">HEADER Parameters</h4>
+<h3 id="header-parameters-2">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -911,9 +371,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="list-campaign">List campaign</h3>
+<h2 id="list-campaign">List campaign</h2>
 <pre><code>GET https://api.bealder.com/v2/lieu/{id}/campaign</code></pre>
-<h4 id="get-parameters-9">GET Parameters</h4>
+<h3 id="get-parameters-3">GET Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -930,7 +390,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="header-parameters-12">HEADER Parameters</h4>
+<h3 id="header-parameters-3">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -949,9 +409,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="delete-campaign">Delete campaign</h3>
+<h2 id="delete-campaign">Delete campaign</h2>
 <pre><code>DELETE https://api.bealder.com/v2/lieu/{id}/campaign/{uid}</code></pre>
-<h4 id="get-parameters-10">GET Parameters</h4>
+<h3 id="get-parameters-4">GET Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -973,7 +433,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="header-parameters-13">HEADER Parameters</h4>
+<h3 id="header-parameters-4">HEADER Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -992,6 +452,7 @@
 </tr>
 </tbody>
 </table>
+<p>To get your token, go to <a href="authentication.html">authentication</a>.</p>
                 </section>
 
             </div>

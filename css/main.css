@@ -30,9 +30,7 @@ header.navbar {
 }
 .navbar .navbar-brand {
     font-size: 28px;
-    height: auto;
     line-height: 50px;
-    margin-left: 20px;
     color: #df691a;
 }
 .navbar a.navbar-brand:hover {
@@ -92,4 +90,88 @@ code {
     color: #c5c8c6;
     border: solid 1px #3D5166;
     background-color: #1D2B3A;
+}
+
+ table {
+    border-collapse: collapse !important;
+  }
+  table td,
+  table th {
+  }
+  table th,
+  table td {
+    border: 1px solid #ddd !important;
+  }
+table {
+  background-color: transparent;
+}
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777777;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+table {
+  width: auto;
+  max-width: auto;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+table > tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+table {
+  border: 1px solid #dddddd;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  border: 1px solid #dddddd;
+}
+table > thead > tr > th,
+table > thead > tr > td {
+  border-bottom-width: 2px;
+}
+table > tbody > tr:hover {
+  background-color: #1D2B3A;
+}
+table col[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-column;
+}
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-cell;
 }
