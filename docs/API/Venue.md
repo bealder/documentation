@@ -24,6 +24,22 @@
 | x-bealder-key	  	|  Your email						 |
 | x-bealder-token  	|  Your token						 |
 
+### Example
+
+```bash
+CURL -X POST https://api.bealder.com/v2/venue
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"
+ -d '{  
+   "name":"NewVenue",
+   "address":"23 Av Albert Einstein 69100 Villeurbanne",
+   "width":200,
+   "height":200,
+   "map":"https:\/\/img.bealder.com\/img\/\/259169-Selection_Niveau3_SET_2.PNG",
+   "active":true
+}'
+```
 
 ## Edit venue
 

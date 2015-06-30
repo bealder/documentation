@@ -42,7 +42,7 @@ menu:
             name: API Docs
             items:
                 auth:
-                    text: Authentification
+                    text: Authentication
                     relativeUrl: docs/API/authentication.html
                 profile:
                     text: Profile

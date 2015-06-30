@@ -15,6 +15,15 @@ Before you can effectively use API, you need to authenticate. With your Bealder 
 | email	  	| String	|  Your Email						 |
 | password  | String    |  Your password					 |
 
+
+## Example
+
+```bash
+curl -X POST https://api.bealder.com/v2/auth \
+ -H "content-Type:application/json" \
+ -d '{"email":"example@bealder.com","password":"password"}' 
+```
+
 ##	Success Response
 
 ```json
@@ -22,7 +31,7 @@ Before you can effectively use API, you need to authenticate. With your Bealder 
     "status": "success",
     "session": {
         "token": "e3af52364f769c73f826c2fccdae57c9",
-        "email": "YOUR_MAIL",
+        "email": "example@bealder.com",
         "valid": "2015-06-24T15:03:31+0200"
     },
     "code": 200,
