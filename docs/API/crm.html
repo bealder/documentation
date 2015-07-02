@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -93,6 +93,7 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="crm">CRM</h1>
+<p>In this section, you will get all informations concerning your users devices, beacon detection &amp; push notification reception.</p>
 <h2 id="get-all-devices">Get all devices</h2>
 <pre><code>GET https://api.bealder.com/v2/crm</code></pre>
 <h3 id="header-parameters">HEADER Parameters</h3>
@@ -114,6 +115,62 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">curl -X GET https://api.bealder.com/v2/crm
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"</code></pre>
+<h3 id="success-response">Success response</h3>
+<pre><code class="language-json">[  
+   {  
+      "nb_beacon":765,
+      "nb_campaign":182,
+      "id":882,
+      "token_push":"3d9a63eff63d7328730a5fbb4eb64840eca922",
+      "name":"iPhone OS",
+      "version":"8.3",
+      "model":"iPhone",
+      "id_connector":1,
+      "create_on":"2015-06-10T17:13:34+0200",
+      "update_on":"2015-06-30T09:10:23+0200",
+      "test":false
+   },
+   {  
+      "nb_beacon":23,
+      "nb_campaign":3,
+      "id":917,
+      "udid":"aabd28506b94df78",
+      "name":"android",
+      "version":"5.0.1",
+      "model":"samsung SM-N910F",
+      "create_on":"2015-06-18T18:10:58+0200",
+      "update_on":"2015-06-29T17:57:37+0200",
+      "test":false
+   },
+   {  
+      "nb_beacon":139,
+      "nb_campaign":78,
+      "id":789,
+      "udid":"24ceb7ae1a6175e2",
+      "name":"android",
+      "version":"4.3",
+      "model":"samsung GT-I9300",
+      "create_on":"2015-05-28T17:03:32+0200",
+      "update_on":"2015-06-01T14:41:26+0200",
+      "test":false
+   }
+]</code></pre>
+<h3 id="response-description">Response description</h3>
+<p>This request render a list of device with beacon &amp; campaign relative informations</p>
+<ul>
+<li><code>nb_beacon</code> :  Number of Bealder's beacon detection by the device</li>
+<li><code>nb_campaign</code> : Number of push notification linked to a campaign reception by the device</li>
+<li><code>model</code> : &quot;Phone model&quot;</li>
+<li><code>name</code> : &quot;OS type&quot;</li>
+<li><code>version</code> : &quot;OS version&quot;</li>
+<li><code>test</code> : &quot;Field that determines weither if the device is a test device or not. The important thing here is that test device are not included in stats.
+This way, the event organizer or shop manager won't mislead stats results&quot;</li>
+</ul>
 <h2 id="get-one-device">get one device</h2>
 <pre><code>GET https://api.bealder.com/v2/crm/{id}</code></pre>
 <h3 id="get-parameters">GET Parameters</h3>
@@ -152,8 +209,85 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example-1">Example</h3>
+<pre><code class="language-bash">curl -X GET https://api.bealder.com/v2/crm/917
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"</code></pre>
+<h3 id="success-response-1">Success response</h3>
+<pre><code class="language-json">{  
+   "device":[  
+      {  
+         "nb_beacon":23,
+         "nb_campaign":3,
+         "id":917,
+         "udid":"aabd28506b94df78",
+         "name":"android",
+         "version":"5.0.1",
+         "model":"samsung SM-N910F",
+         "create_on":"2015-06-18T18:10:58+0200",
+         "update_on":"2015-06-29T17:57:37+0200",
+         "test":false
+      }
+   ],
+   "auth":[  
+      {  
+         "id":11326,
+         "create_on":"2015-06-18T18:11:00+0200",
+         "ip":"192.000.00.00"
+      },
+      {  
+         "id":11327,
+         "create_on":"2015-06-18T18:11:20+0200",
+         "ip":"192.000.00.00"
+      },
+      {  
+         "id":11328,
+         "create_on":"2015-06-18T18:14:43+0200",
+         "ip":"192.000.00.00"
+      }
+   ],
+   "beacon":[  
+      {  
+         "lieu":"Awelty",
+         "lieu_id":208,
+         "id":307064,
+         "beacon":{  
+            "id":329,
+            "name":"aime",
+            "uuid":"B9407F30-F788-4623-AFF9-25544B57FE6D",
+            "major":33217,
+            "minor":923081,
+            "proximity":"near",
+            "color":"blue",
+            "active":true,
+            "tags":[  
+               {  
+                  "id":3,
+                  "name":"football"
+               },
+               {  
+                  "id":15,
+                  "name":"tennis"
+               }
+            ]
+         },
+         "status":"near",
+         "create_on":"2015-06-18T18:10:58+0200",
+         "ip":"192.000.00.00"
+      }
+   ]
+}</code></pre>
+<h3 id="response-description-1">Response description</h3>
+<p>This request render a list of device with beacon &amp; campaign relative informations</p>
+<ul>
+<li><code>device</code> :  Details on your user device, beacon detection &amp; campaign reception on device </li>
+<li><code>auth</code> : &quot;Trace of user authentification on application&quot;</li>
+<li><code>beacon</code> &quot;Trace of device's beacon detection&quot;</li>
+</ul>
 <h2 id="update-one-device">Update one device</h2>
 <pre><code>PUT https://api.bealder.com/v2/crm/{id}</code></pre>
+<p>This method's main purpose is to edit device test attribute for testing devices. But you can also </p>
 <h3 id="get-parameters-1">GET Parameters</h3>
 <table>
 <thead>
@@ -207,6 +341,74 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example-2">Example</h3>
+<pre><code class="language-bash">curl -X PUT https://api.bealder.com/v2/crm/917 
+-H "content-Type:application/json" 
+-H "x-bealder-key:kevin@bealder.com" 
+-H "x-bealder-token:ea7c4b01fd135550497b4633328a5d65" 
+-d '{  
+   "device":[  
+      {  
+         "nb_beacon":23,
+         "nb_campaign":3,
+         "id":234,
+         "udid":"aabd28506b94df78",
+         "name":"android",
+         "version":"5.0.1",
+         "model":"samsung SM-N910F",
+         "create_on":"2015-06-18T18:10:58+0200",
+         "update_on":"2015-06-29T17:57:37+0200",
+         "test":"true"
+      }
+   ],
+   "auth":[  
+      {  
+         "id":11326,
+         "create_on":"2015-06-18T18:11:00+0200",
+         "ip":"192.000.00.00"
+      },
+      {  
+         "id":11327,
+         "create_on":"2015-06-18T18:11:20+0200",
+         "ip":"192.000.00.00"
+      },
+      {  
+         "id":11328,
+         "create_on":"2015-06-18T18:14:43+0200",
+         "ip":"192.000.00.00"
+      }
+   ],
+   "beacon":[  
+      {  
+         "lieu":"Awelty",
+         "lieu_id":208,
+         "id":307064,
+         "beacon":{  
+            "id":329,
+            "name":"aime",
+            "uuid":"B9407F30-F788-4623-AFF9-25544B57FE6D",
+            "major":33217,
+            "minor":923081,
+            "proximity":"near",
+            "color":"blue",
+            "active":true,
+            "tags":[  
+               {  
+                  "id":3,
+                  "name":"football"
+               },
+               {  
+                  "id":15,
+                  "name":"tennis"
+               }
+            ]
+         },
+         "status":"near",
+         "create_on":"2015-06-18T18:10:58+0200",
+         "ip":"192.000.00.00"
+      }
+   ]
+}'</code></pre>
 <p>To get your token, go to <a href="authentication.html">authentication</a>.</p>
                 </section>
 

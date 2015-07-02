@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -135,7 +135,7 @@
 <tr>
 <td>title</td>
 <td>true</td>
-<td>Notificaiton title</td>
+<td>Notification title</td>
 </tr>
 <tr>
 <td>template</td>
@@ -145,17 +145,17 @@
 <tr>
 <td>url</td>
 <td></td>
-<td>a link</td>
+<td>a link for 'url' format</td>
 </tr>
 <tr>
 <td>format</td>
 <td>true</td>
-<td>choise between (template, url, html)</td>
+<td>choose between (template, url, html, connector)</td>
 </tr>
 <tr>
 <td>html</td>
 <td></td>
-<td>source code html/css</td>
+<td>source code html/css for 'html' format</td>
 </tr>
 <tr>
 <td>cache</td>
@@ -187,8 +187,45 @@
 <td>true</td>
 <td>active campaign with 1, else 0</td>
 </tr>
+<tr>
+<td>monday</td>
+<td>true</td>
+<td>Campaign sent on monday</td>
+</tr>
+<tr>
+<td>thuesday</td>
+<td>true</td>
+<td>Campaign sent on thuesday</td>
+</tr>
+<tr>
+<td>wednesday</td>
+<td>true</td>
+<td>Campaign sent on wednesday</td>
+</tr>
+<tr>
+<td>thursday</td>
+<td>true</td>
+<td>Campaign sent on thursday</td>
+</tr>
+<tr>
+<td>friday</td>
+<td>true</td>
+<td>Campaign sent on friday</td>
+</tr>
+<tr>
+<td>saturday</td>
+<td>true</td>
+<td>Campaign sent on saturday</td>
+</tr>
+<tr>
+<td>sunday</td>
+<td>true</td>
+<td>Campaign sent on sunday</td>
+</tr>
 </tbody>
 </table>
+<p>For format='connector' choice, nothing else must be specified.
+We will just use the one configured for your company</p>
 <h3 id="header-parameters">HEADER Parameters</h3>
 <table>
 <thead>
@@ -208,6 +245,107 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">curl -X POST https://api.bealder.com/v2/lieu/13/campaign
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"
+ -d '{  
+   "name":"Notification envoyé le jeudi",
+   "hash":"62d6cad47a7d4eff4ea46794b9cd825d",
+   "push":"Entre 11 et 19h",
+   "title":"On est jeudi!",
+   "format":"url",
+   "start":"2015-03-05T00:00:00+0100",
+   "end":"2020-01-01T00:00:00+0100",
+   "monday":false,
+   "url": "http://www.bealder.com",
+   "tuesday":false,
+   "wednesday":false,
+   "thursday":true,
+   "friday":false,
+   "saturday":false,
+   "sunday":false,
+   "cache":"hour",
+   "active":true,
+   "start_time":"11:00",
+   "end_time":"19:00",
+   "beacons":[  
+      {  
+         "id":184,
+         "name":"BEACON ESTIMOTE",
+         "uuid":"B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+         "major":43417,
+         "minor":32638,
+         "x":436,
+         "y":178,
+         "proximity":"near",
+         "color":"blue",
+         "active":true,
+         "tags":[  
+
+         ]
+      }
+   ],
+   "nfcs":[  
+
+   ],
+   "qrcodes":[  
+
+   ],
+   "tags":[  
+
+   ]
+}'  </code></pre>
+<h3 id="success-response">Success response</h3>
+<pre><code class="language-json">{  
+   "id":212,
+   "name":"Notification envoyé le jeudi",
+   "hash":"62d6cad47a7d4eff4ea46794b9cd825d",
+   "push":"Entre 11 et 19h",
+   "title":"On est jeudi!",
+   "format":"url",
+   "start":"2015-03-05T00:00:00+0100",
+   "end":"2020-01-01T00:00:00+0100",
+   "monday":false,
+   "tuesday":false,
+   "wednesday":false,
+   "thursday":true,
+   "friday":false,
+   "saturday":false,
+   "sunday":false,
+   "url": "http://www.bealder.com",
+   "cache":"hour",
+   "active":true,
+   "start_time":"11:00",
+   "end_time":"19:00",
+   "beacons":[  
+      {  
+         "id":184,
+         "name":"BEACON ESTIMOTE",
+         "uuid":"B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+         "major":43417,
+         "minor":32638,
+         "x":436,
+         "y":178,
+         "proximity":"near",
+         "color":"blue",
+         "active":true,
+         "tags":[  
+
+         ]
+      }
+   ],
+   "nfcs":[  
+
+   ],
+   "qrcodes":[  
+
+   ],
+   "tags":[  
+
+   ]
+}</code></pre>
 <h2 id="get-one-campaign">Get one campaign</h2>
 <pre><code>GET https://api.bealder.com/v2/lieu/{id}/campaign/{uid}</code></pre>
 <h3 id="get-parameters-1">GET Parameters</h3>
@@ -251,6 +389,62 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example-1">Example</h3>
+<pre><code class="language-bash">curl -X GET https://api.bealder.com/v2/lieu/13/campaign/212
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"</code></pre>
+<h3 id="success-response-1">Success response</h3>
+<pre><code class="language-json">{  
+   "id":212,
+   "name":"C'est jeudi, c'est jeudizza",
+   "hash":"62d6cad47a7d4eff4ea46794b9cd825d",
+   "push":"Viens choisir ta pizza ! Maintenant et avant 12h12 !",
+   "title":"C'est jeudi, c'est jeudizza",
+   "background":"#6cddd1",
+   "color":"#ffffff",
+   "format":"url",
+   "start":"2015-03-05T00:00:00+0100",
+   "end":"2020-01-01T00:00:00+0100",
+   "monday":false,
+   "tuesday":false,
+   "wednesday":false,
+   "thursday":true,
+   "friday":false,
+   "saturday":false,
+   "sunday":false,
+   "url": "http://pizza.dominos.fr/la-carte/nos-pizzas"
+   "cache":"hour",
+   "active":true,
+   "start_time":"11:00",
+   "end_time":"19:00",
+   "beacons":[  
+      {  
+         "id":184,
+         "name":"BEACON ESTIMOTE",
+         "uuid":"B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+         "major":43417,
+         "minor":32638,
+         "x":436,
+         "y":178,
+         "proximity":"near",
+         "color":"blue",
+         "active":true,
+         "tags":[  
+
+         ]
+      }
+   ],
+   "nfcs":[  
+
+   ],
+   "qrcodes":[  
+
+   ],
+   "tags":[  
+
+   ]
+}</code></pre>
 <h2 id="edit-one-campaign">Edit one campaign</h2>
 <pre><code>PUT https://api.bealder.com/v2/lieu/{id}/campaign/{id}</code></pre>
 <h3 id="get-parameters-2">GET Parameters</h3>

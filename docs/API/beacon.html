@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -93,6 +93,13 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="beacon">Beacon</h1>
+<p>If you want to add a new beacon to your company, you must know the three following components of the beacon hardware which makes it unique :</p>
+<ul>
+<li>uuid</li>
+<li>major</li>
+<li>minor</li>
+</ul>
+<p>If you have no idea of how to get these, please contact us on our <a href="www.bealder.com">website</a>.</p>
 <h2 id="create-new-beacon">Create new beacon</h2>
 <pre><code>POST https://api.bealder.com/v2/region/{id}/beacon</code></pre>
 <h3 id="get-parameters">GET Parameters</h3>
@@ -108,7 +115,7 @@
 <tr>
 <td>id</td>
 <td>true</td>
-<td>id of venue</td>
+<td>venue ID</td>
 </tr>
 </tbody>
 </table>
@@ -130,22 +137,17 @@
 <tr>
 <td>uuid</td>
 <td>true</td>
-<td>uuid of beacon</td>
+<td>Beacon UUID</td>
 </tr>
 <tr>
 <td>major</td>
 <td>true</td>
-<td>major of beacon</td>
+<td>Beacon major</td>
 </tr>
 <tr>
 <td>minor</td>
 <td>true</td>
-<td>minor of beacon</td>
-</tr>
-<tr>
-<td>color</td>
-<td></td>
-<td>view color on map</td>
+<td>Beacon minor</td>
 </tr>
 <tr>
 <td>active</td>
@@ -155,7 +157,22 @@
 <tr>
 <td>proximity</td>
 <td>true</td>
-<td>define default proximity to trigger</td>
+<td>define default proximity to trigger (immediate, near, far)</td>
+</tr>
+<tr>
+<td>x</td>
+<td></td>
+<td>Beacon horizontal axis on map</td>
+</tr>
+<tr>
+<td>y</td>
+<td></td>
+<td>Beacon vertical axis on map</td>
+</tr>
+<tr>
+<td>color</td>
+<td></td>
+<td>view color on map</td>
 </tr>
 </tbody>
 </table>
@@ -178,6 +195,33 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">curl -X POST https://api.bealder.com/v2/region/1/beacon
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"
+ -d '{  
+      "id":13,
+      "name":"MiniBeacon 1.2",
+      "uuid":"E2CE67A05-DFEB-48A2-B060-D0F5761096E0",
+      "major":1,
+      "minor":2,
+      "x":294,
+      "y":217,
+      "proximity":"near",
+      "color":"yellow",
+      "active":true,
+      "tags":[  
+         {  
+            "id":3,
+            "name":"Fitness"
+         },
+         {  
+            "id":4,
+            "name":"Beauté"
+         }
+      ]
+   }'</code></pre>
 <h2 id="edit-beacon">Edit beacon</h2>
 <pre><code>PUT https://api.bealder.com/v2/region/{id}/beacon/{uid}</code></pre>
 <h3 id="get-parameters-1">GET Parameters</h3>
@@ -193,12 +237,12 @@
 <tr>
 <td>id</td>
 <td>true</td>
-<td>id of venue</td>
+<td>Venue ID</td>
 </tr>
 <tr>
 <td>uid</td>
 <td>true</td>
-<td>id of beacon</td>
+<td>Beacon ID</td>
 </tr>
 </tbody>
 </table>
@@ -220,17 +264,17 @@
 <tr>
 <td>uuid</td>
 <td>true</td>
-<td>uuid of beacon</td>
+<td>Beacon UUID</td>
 </tr>
 <tr>
 <td>major</td>
 <td>true</td>
-<td>major of beacon</td>
+<td>Beacon major</td>
 </tr>
 <tr>
 <td>minor</td>
 <td>true</td>
-<td>minor of beacon</td>
+<td>Beacon minor</td>
 </tr>
 <tr>
 <td>color</td>
@@ -283,7 +327,7 @@
 <tr>
 <td>id</td>
 <td>true</td>
-<td>id of venue</td>
+<td>Venue ID</td>
 </tr>
 </tbody>
 </table>
@@ -321,12 +365,12 @@
 <tr>
 <td>id</td>
 <td>true</td>
-<td>id of venue</td>
+<td>Venue ID</td>
 </tr>
 <tr>
 <td>uid</td>
 <td>true</td>
-<td>id of beacon</td>
+<td>Beacon ID</td>
 </tr>
 </tbody>
 </table>

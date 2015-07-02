@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -117,12 +117,16 @@
 </tr>
 </tbody>
 </table>
+<h2 id="example">Example</h2>
+<pre><code class="language-bash">curl -X POST https://api.bealder.com/v2/auth \
+ -H "content-Type:application/json" \
+ -d '{"email":"example@bealder.com","password":"password"}' </code></pre>
 <h2 id="success-response">Success Response</h2>
 <pre><code class="language-json">{
     "status": "success",
     "session": {
         "token": "e3af52364f769c73f826c2fccdae57c9",
-        "email": "YOUR_MAIL",
+        "email": "example@bealder.com",
         "valid": "2015-06-24T15:03:31+0200"
     },
     "code": 200,

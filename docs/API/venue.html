@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -163,6 +163,19 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">CURL -X POST https://api.bealder.com/v2/venue
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"
+ -d '{  
+   "name":"NewVenue",
+   "address":"23 Av Albert Einstein 69100 Villeurbanne",
+   "width":200,
+   "height":200,
+   "map":"https:\/\/img.bealder.com\/img\/\/259169-Selection_Niveau3_SET_2.PNG",
+   "active":true
+}'</code></pre>
 <h2 id="edit-venue">Edit venue</h2>
 <pre><code>PUT https://api.bealder.com/v2/region/{id}</code></pre>
 <h3 id="get-parameters">GET Parameters</h3>

@@ -53,7 +53,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                                                     <li class="">
                                         <a href="http://bealder.github.io/documentation/docs/API/authentication.html">
-                                            Authentification
+                                            Authentication
                                         </a>
                                     </li>
                                                                     <li class="">
@@ -93,7 +93,15 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="connector">Connector</h1>
-<h2 id="get-connector">get connector</h2>
+<p>This section allows you to configure a connector to your own api. </p>
+<p>This way you can organize the following workflow : </p>
+<ul>
+<li>Register your api</li>
+<li>Create a campaign and select 'connector' format</li>
+</ul>
+<p>Every time a beacon is detected, a cloud to cloud call is done between Bealder API and your API.</p>
+<p>This way you can easily make your own segmentation in addition to Bealder segmentation for push notification content.</p>
+<h2 id="get-connector">GET connector</h2>
 <pre><code>GET https://api.bealder.com/v2/connector</code></pre>
 <h3 id="header-parameters">HEADER Parameters</h3>
 <table>
@@ -114,6 +122,17 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example">Example</h3>
+<pre><code class="language-bash">curl -X GET https://api.bealder.com/v2/connector -H "content-Type:application/json" -H "x-bealder-key:example@bealder.com" -H "x-bealder-token:ec311746cf596d94cabea9f9d261eb3a"</code></pre>
+<h3 id="success-response">Success Response</h3>
+<pre><code class="language-json">{  
+   "id":2,
+   "name":"My company CRM",
+   "url":"http:\/\/.api.mycompany.com\/beacon",
+   "auth":"GET",
+   "method":"POST",
+   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"}]"
+}</code></pre>
 <h2 id="update-connector">Update connector</h2>
 <pre><code>PUT https://api.bealder.com/v2/connector</code></pre>
 <h3 id="put-parameters">PUT Parameters</h3>
@@ -178,6 +197,27 @@
 </tr>
 </tbody>
 </table>
+<h3 id="example-1">Example</h3>
+<pre><code class="language-bash">curl -X PUT https://api.bealder.com/v2/connector -H "content-Type:application/json" -H "x-bealder-key:example@bealder.com" -H "x-bealder-token:ec311746cf596d94cabea9f9d261eb3a"
+-d '{  
+   "id":2,
+   "name":"My company CRM Bis",
+   "url":"http:\/\/.api.mycompany.com\/beacon",
+   "auth":"GET",
+   "method":"POST",
+   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"},
+   {\"key\":\"Email\",\"value\":\"example@bealder.com\"}]"
+}'</code></pre>
+<h3 id="success-response-1">Success Response</h3>
+<pre><code class="language-json">{  
+   "id":2,
+   "name":"My company CRM Bis",
+   "url":"http:\/\/.api.mycompany.com\/beacon",
+   "auth":"GET",
+   "method":"POST",
+   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"},
+   {\"key\":\"Email\",\"value\":\"example@bealder.com\"}]"
+}</code></pre>
 <p>To get your token, go to <a href="authentication.html">authentication</a>.</p>
                 </section>
 
