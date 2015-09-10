@@ -97,17 +97,64 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="connector">Connector</h1>
-<p>This section allows you to configure a connector to your own api. </p>
-<p>This way you can organize the following workflow : </p>
-<ul>
-<li>Register your api</li>
-<li>Create a campaign and select 'connector' format</li>
-</ul>
-<p>Every time a beacon is detected, a cloud to cloud call is done between Bealder API and your API.</p>
-<p>This way you can easily make your own segmentation in addition to Bealder segmentation for push notification content.</p>
-<h2 id="get-connector">GET connector</h2>
-<pre><code>GET https://api.bealder.com/v2/connector</code></pre>
+                    <h1 id="geofencing">Geofencing</h1>
+<p>A geo-fence is a virtual perimeter for a real-world geographic area. A geo-fence could be dynamically generated—as in a radius around a store or point location, or a geo-fence can be a predefined set of boundaries, like school attendance zones or neighborhood boundaries. <a href="https://en.wikipedia.org/wiki/Geo-fence">source</a></p>
+<h2 id="create-new-geofence-area">Create new geofence area</h2>
+<pre><code>POST https://api.bealder.com/v2/region/{id}/geofencing</code></pre>
+<h3 id="get-parameters">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>venue ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-parameters">POST Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>Geofence name</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>true</td>
+<td>Longitude</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>true</td>
+<td>Latitude</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>true</td>
+<td>radius in meter</td>
+</tr>
+<tr>
+<td>active</td>
+<td>true</td>
+<td>if active, set 1, else 0</td>
+</tr>
+</tbody>
+</table>
 <h3 id="header-parameters">HEADER Parameters</h3>
 <table>
 <thead>
@@ -128,24 +175,46 @@
 </tbody>
 </table>
 <h3 id="example">Example</h3>
-<pre><code class="language-bash">curl -X GET https://api.bealder.com/v2/connector -H "content-Type:application/json" -H "x-bealder-key:example@bealder.com" -H "x-bealder-token:ec311746cf596d94cabea9f9d261eb3a"</code></pre>
-<h3 id="success-response">Success Response</h3>
-<pre><code class="language-json">{  
-   "id":2,
-   "name":"My company CRM",
-   "url":"http:\/\/.api.mycompany.com\/beacon",
-   "auth":"GET",
-   "method":"POST",
-   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"}]"
-}</code></pre>
-<h2 id="update-connector">Update connector</h2>
-<pre><code>PUT https://api.bealder.com/v2/connector</code></pre>
+<pre><code class="language-bash">curl -X POST https://api.bealder.com/v2/region/1/geofencing
+ -H "content-Type:application/json"
+ -H "x-bealder-key:example@bealder.com"
+ -H "x-bealder-token:20f586ec4b244e00a81d00bca91b7d7f"
+ -d '{  
+      "name":"Area 51",
+      "longitude": 4.86116816,
+      "latitude": 45.76395439,
+      "radius": 480,
+      "active": true
+   }'</code></pre>
+<h2 id="edit-geofencing">Edit Geofencing</h2>
+<pre><code>PUT https://api.bealder.com/v2/region/{id}/geofencing/{uid}</code></pre>
+<h3 id="get-parameters-1">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>Venue ID</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>Geofencing ID</td>
+</tr>
+</tbody>
+</table>
 <h3 id="put-parameters">PUT Parameters</h3>
 <table>
 <thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
 <th>Require</th>
 <th>Description</th>
 </tr>
@@ -153,33 +222,28 @@
 <tbody>
 <tr>
 <td>name</td>
-<td>String</td>
 <td>true</td>
-<td>name of connector</td>
+<td>Geofence name</td>
 </tr>
 <tr>
-<td>url</td>
-<td>String</td>
+<td>longitude</td>
 <td>true</td>
-<td>url of webservice</td>
+<td>Longitude</td>
 </tr>
 <tr>
-<td>method</td>
-<td>String</td>
+<td>latitude</td>
 <td>true</td>
-<td>method to send (POST, GET)</td>
+<td>Latitude</td>
 </tr>
 <tr>
-<td>parameters</td>
-<td>String</td>
+<td>radius</td>
 <td>true</td>
-<td>Parameters to authenticate</td>
+<td>radius in meter</td>
 </tr>
 <tr>
-<td>auth</td>
-<td>String</td>
+<td>active</td>
 <td>true</td>
-<td>Send parameters method  (header, get)</td>
+<td>if active, set 1, else 0</td>
 </tr>
 </tbody>
 </table>
@@ -202,27 +266,87 @@
 </tr>
 </tbody>
 </table>
-<h3 id="example-1">Example</h3>
-<pre><code class="language-bash">curl -X PUT https://api.bealder.com/v2/connector -H "content-Type:application/json" -H "x-bealder-key:example@bealder.com" -H "x-bealder-token:ec311746cf596d94cabea9f9d261eb3a"
--d '{  
-   "id":2,
-   "name":"My company CRM Bis",
-   "url":"http:\/\/.api.mycompany.com\/beacon",
-   "auth":"GET",
-   "method":"POST",
-   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"},
-   {\"key\":\"Email\",\"value\":\"example@bealder.com\"}]"
-}'</code></pre>
-<h3 id="success-response-1">Success Response</h3>
-<pre><code class="language-json">{  
-   "id":2,
-   "name":"My company CRM Bis",
-   "url":"http:\/\/.api.mycompany.com\/beacon",
-   "auth":"GET",
-   "method":"POST",
-   "parameters":"[{\"key\":\"Authentication\",\"value\":\"23533TT3Y64F24\"},
-   {\"key\":\"Email\",\"value\":\"example@bealder.com\"}]"
-}</code></pre>
+<h2 id="list-geofencing">List Geofencing</h2>
+<pre><code>GET https://api.bealder.com/v2/region/{id}/geofencing</code></pre>
+<h3 id="get-parameters-2">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>Venue ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-2">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
+<h2 id="delete-geofencing">Delete Geofencing</h2>
+<pre><code>DELETE https://api.bealder.com/v2/region/{id}/geofencing/{uid}</code></pre>
+<h3 id="get-parameters-3">GET Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Require</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>Venue ID</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>Geofencing ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-parameters-3">HEADER Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-bealder-key</td>
+<td>Your email</td>
+</tr>
+<tr>
+<td>x-bealder-token</td>
+<td>Your token</td>
+</tr>
+</tbody>
+</table>
 <p>To get your token, go to <a href="authentication.html">authentication</a>.</p>
                 </section>
 
